@@ -1131,17 +1131,42 @@ h2 em {
 
 .invitation-envelope {
   position: relative;
+  isolation: isolate;
   display: block;
   width: 100%;
   aspect-ratio: 1.48;
+  min-height: 0;
+  margin: 0;
   padding: 0;
   border: 0;
-  background: transparent;
+  border-radius: 0;
+  outline: none;
+  background: transparent !important;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  text-align: initial;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
   cursor: pointer;
+  overflow: visible;
   filter: drop-shadow(0 25px 25px rgba(0,0,0,.28));
   transition:
     transform .4s ease,
     filter .4s ease;
+}
+
+.invitation-envelope > * {
+  pointer-events: none;
+}
+
+.invitation-envelope .envelope-back,
+.invitation-envelope .envelope-paper,
+.invitation-envelope .envelope-front,
+.invitation-envelope .envelope-flap,
+.invitation-envelope .envelope-seal {
+  display: block;
 }
 
 .invitation-envelope:hover {
@@ -1220,6 +1245,13 @@ h2 em {
 
   background: #bba98f;
 
+  -webkit-clip-path: polygon(
+    0 0,
+    50% 58%,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
   clip-path: polygon(
     0 0,
     50% 58%,
@@ -1241,6 +1273,11 @@ h2 em {
 
   background: #d4c4aa;
 
+  -webkit-clip-path: polygon(
+    0 0,
+    100% 0,
+    50% 100%
+  );
   clip-path: polygon(
     0 0,
     100% 0,
@@ -1248,6 +1285,7 @@ h2 em {
   );
 
   transform-origin: top center;
+  transform-style: preserve-3d;
 
   transition:
     transform .7s ease,
@@ -1467,81 +1505,4 @@ h2 em {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media (max-width: 760px) {
-
-  .invitation-view {
-    padding-top: 38px;
-  }
-
-  .invitation-heading h1 {
-    font-size: clamp(53px, 13vw, 76px);
-  }
-
-  .invitation-subtitle {
-    max-width: 320px;
-    font-size: 14px;
-  }
-
-  .invitation-envelope-area {
-    width: min(350px, 90%);
-    margin-top: 35px;
-  }
-
-  .envelope-paper-title {
-    font-size: 22px;
-  }
-
-  .invitation-letter {
-    padding: 25px 21px;
-  }
-
-  .invitation-letter-header {
-    font-size: 7px;
-  }
-
-  .invitation-letter-content p {
-    font-size: 12px;
-    line-height: 1.9;
-  }
-
-  .invitation-letter-content .invitation-salutation {
-    font-size: 18px;
-  }
-
-  .invitation-letter-content blockquote {
-    font-size: 15px;
-  }
-
-  .invitation-footer {
-    margin-top: 38px;
-  }
-
-}
-
-@media (max-width: 380px) {
-
-  .invitation-heading h1 {
-    font-size: 49px;
-  }
-
-  .envelope-paper-label,
-  .envelope-paper-date {
-    font-size: 7px;
-  }
-
-  .envelope-paper-title {
-    font-size: 19px;
-  }
-
-  .invitation-letter-header {
-    letter-spacing: .08em;
-  }
-
 }
