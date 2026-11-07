@@ -1068,3 +1068,480 @@ h2 em {
   opacity: 1;
   transform: translate(-50%, 0);
 }
+
+/* =====================================================
+   THE INVITATION
+   Opening Scene — THE LAST CHAPTER
+===================================================== */
+
+.invitation-view {
+  padding-top: 55px;
+  padding-bottom: 35px;
+  overflow: hidden;
+}
+
+.invitation-container {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Heading */
+
+.invitation-heading {
+  width: 100%;
+  animation: invitationFadeIn 1s ease both;
+}
+
+.invitation-heading .eyebrow {
+  justify-content: center;
+}
+
+.invitation-heading h1 {
+  margin: 24px 0 15px;
+  font-size: clamp(55px, 8vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.invitation-heading h1 em {
+  color: var(--wine-light);
+}
+
+.invitation-subtitle {
+  max-width: 440px;
+  margin: 0 auto;
+  color: var(--muted);
+  font: 16px/1.8 var(--serif);
+}
+
+
+/* =====================================================
+   ENVELOPE
+===================================================== */
+
+.invitation-envelope-area {
+  width: min(390px, 88%);
+  margin: 42px auto 25px;
+  perspective: 1000px;
+}
+
+.invitation-envelope {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.48;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  filter: drop-shadow(0 25px 25px rgba(0,0,0,.28));
+  transition:
+    transform .4s ease,
+    filter .4s ease;
+}
+
+.invitation-envelope:hover {
+  transform: translateY(-6px) rotate(-1deg);
+  filter: drop-shadow(0 32px 30px rgba(0,0,0,.38));
+}
+
+.invitation-envelope:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 9px;
+}
+
+/* Envelope base */
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: #c9b99f;
+  border: 1px solid #e0d2bb;
+  border-radius: 4px;
+}
+
+/* Letter inside the envelope */
+
+.envelope-paper {
+  position: absolute;
+  z-index: 1;
+  top: 5%;
+  left: 8%;
+  right: 8%;
+  height: 88%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px 15px;
+
+  color: #39302d;
+  background: #eee5d6;
+  border: 1px solid rgba(70,53,44,.18);
+
+  transition:
+    transform .85s cubic-bezier(.2,.75,.25,1),
+    top .85s ease;
+}
+
+.envelope-paper-label,
+.envelope-paper-date {
+  font: 8px var(--mono);
+  letter-spacing: .16em;
+  color: #847363;
+}
+
+.envelope-paper-title {
+  margin: 13px 0;
+  font: 26px/1.15 var(--serif);
+}
+
+.envelope-paper-title em {
+  color: #874555;
+}
+
+.envelope-paper-date {
+  margin-top: 5px;
+}
+
+/* Envelope front */
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  background: #bba98f;
+
+  clip-path: polygon(
+    0 0,
+    50% 58%,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+
+  border-radius: 0 0 4px 4px;
+}
+
+/* Envelope flap */
+
+.envelope-flap {
+  position: absolute;
+  z-index: 3;
+  inset: 0 0 auto;
+  height: 62%;
+
+  background: #d4c4aa;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    50% 100%
+  );
+
+  transform-origin: top center;
+
+  transition:
+    transform .7s ease,
+    opacity .35s ease;
+
+  backface-visibility: hidden;
+}
+
+/* Wax seal */
+
+.envelope-seal {
+  position: absolute;
+  z-index: 4;
+
+  top: 54%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  display: grid;
+  place-items: center;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  color: #f0dfc8;
+  background: #713744;
+
+  border: 1px solid #a66d75;
+
+  box-shadow:
+    0 3px 9px rgba(0,0,0,.2),
+    inset 0 0 0 3px rgba(255,255,255,.08);
+
+  font: 23px var(--serif);
+
+  transition:
+    opacity .3s ease,
+    transform .4s ease;
+}
+
+/* Envelope opening animation */
+
+.invitation-envelope.is-open .envelope-flap {
+  transform: rotateX(180deg);
+  opacity: .2;
+}
+
+.invitation-envelope.is-open .envelope-seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.5);
+}
+
+.invitation-envelope.is-open .envelope-paper {
+  transform: translateY(-43%);
+}
+
+/* Instruction */
+
+.envelope-instruction {
+  margin: 20px 0 0;
+
+  color: var(--gold);
+
+  font: 9px var(--mono);
+  letter-spacing: .17em;
+
+  transition: opacity .3s ease;
+}
+
+
+/* =====================================================
+   INVITATION LETTER
+===================================================== */
+
+.invitation-letter {
+  width: min(590px, 100%);
+  margin: 20px auto 0;
+  padding: clamp(25px, 5vw, 45px);
+
+  text-align: left;
+
+  color: #3b332e;
+  background: #e8decd;
+
+  border: 1px solid #c7b89f;
+
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.2);
+
+  animation: invitationLetterReveal .8s ease both;
+}
+
+/* Letter header */
+
+.invitation-letter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid rgba(60,48,40,.2);
+
+  color: #897967;
+
+  font: 8px var(--mono);
+  letter-spacing: .13em;
+}
+
+/* Letter content */
+
+.invitation-letter-content {
+  padding-top: 18px;
+}
+
+.invitation-letter-content p {
+  margin: 15px 0;
+
+  color: #5d5148;
+
+  font: 13px/1.95 var(--sans);
+}
+
+.invitation-letter-content .invitation-salutation {
+  margin-top: 10px;
+
+  color: #302925;
+
+  font: italic 20px/1.5 var(--serif);
+}
+
+.invitation-letter-content .invitation-last-line {
+  margin-top: 25px;
+
+  color: #302925;
+
+  font: italic 17px var(--serif);
+}
+
+/* Important quote */
+
+.invitation-letter-content blockquote {
+  margin: 22px 0;
+  padding: 14px 18px;
+
+  border-left: 2px solid #9c6c70;
+
+  color: #713744;
+
+  font: italic 17px/1.8 var(--serif);
+}
+
+/* Closing sentence */
+
+.invitation-letter-content .invitation-signoff {
+  margin-top: 25px;
+
+  color: #302925;
+
+  font: italic 18px var(--serif);
+}
+
+/* Accept button */
+
+.invitation-letter-action {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.invitation-accept {
+  margin-top: 5px;
+}
+
+.invitation-footnote {
+  margin: 18px 0 0;
+
+  color: #887968;
+
+  font: 8px var(--mono);
+  letter-spacing: .13em;
+}
+
+/* Footer */
+
+.invitation-footer {
+  margin-top: 55px;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes invitationFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes invitationLetterReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 760px) {
+
+  .invitation-view {
+    padding-top: 38px;
+  }
+
+  .invitation-heading h1 {
+    font-size: clamp(53px, 13vw, 76px);
+  }
+
+  .invitation-subtitle {
+    max-width: 320px;
+    font-size: 14px;
+  }
+
+  .invitation-envelope-area {
+    width: min(350px, 90%);
+    margin-top: 35px;
+  }
+
+  .envelope-paper-title {
+    font-size: 22px;
+  }
+
+  .invitation-letter {
+    padding: 25px 21px;
+  }
+
+  .invitation-letter-header {
+    font-size: 7px;
+  }
+
+  .invitation-letter-content p {
+    font-size: 12px;
+    line-height: 1.9;
+  }
+
+  .invitation-letter-content .invitation-salutation {
+    font-size: 18px;
+  }
+
+  .invitation-letter-content blockquote {
+    font-size: 15px;
+  }
+
+  .invitation-footer {
+    margin-top: 38px;
+  }
+
+}
+
+@media (max-width: 380px) {
+
+  .invitation-heading h1 {
+    font-size: 49px;
+  }
+
+  .envelope-paper-label,
+  .envelope-paper-date {
+    font-size: 7px;
+  }
+
+  .envelope-paper-title {
+    font-size: 19px;
+  }
+
+  .invitation-letter-header {
+    letter-spacing: .08em;
+  }
+
+}
