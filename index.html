@@ -435,5 +435,50 @@
   <script src="js/storage.js"></script>
   <script src="js/game-engine.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const envelope = document.getElementById("openInvitationBtn");
+  const letter = document.getElementById("invitationLetter");
+  const instruction = document.getElementById("envelopeInstruction");
+  const acceptButton = document.getElementById("acceptInvitationBtn");
+
+  // Open and close the envelope
+  if (envelope && letter) {
+    envelope.addEventListener("click", () => {
+      const isOpen = envelope.classList.toggle("is-open");
+      envelope.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      letter.classList.toggle("hidden", !isOpen);
+      instruction.textContent = isOpen
+        ? "THE LETTER HAS BEEN UNSEALED"
+        : "CLICK THE ENVELOPE TO UNSEAL";
+
+      if (isOpen) {
+        setTimeout(() => {
+          letter.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }, 350);
+      }
+    });
+
+  }
+
+  // Accept the invitation and enter the main archive
+  if (acceptButton) {
+    acceptButton.addEventListener("click", () => {
+      if (typeof showScreen === "function") {
+        showScreen("view-home");
+      }
+    });
+  }
+});
+</script>
 </body>
 </html>
