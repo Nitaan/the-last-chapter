@@ -465,7 +465,7 @@ function collect(puzzle) {
 
     // 1. In-game feedback
     if (feedback) {
-        feedback.textContent = `FOUND EVIDENCE HADIAH: ${puzzle.collectible} ✦`;
+        feedback.textContent = `FOUND EVIDENCE: ${puzzle.collectible} ✦`;
         feedback.className = "feedback success";
     }
 
