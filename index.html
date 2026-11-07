@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171619">
+  <title>THE LAST CHAPTER — A Mystery for Sunskie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&family=DM+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="grain"></div>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <a href="#" class="brand">
+      <span class="brand-mark">T</span>
+      <span>THE LAST CHAPTER</span>
+    </a>
+    <div class="topbar-right">
+      <span class="case-label" id="caseCounter">ARCHIVE FILE NO. 081126</span>
+    </div>
+  </header>
+
+  <main class="app-shell" id="app">
+
+    <!-- VIEW 1: HOME / LANDING -->
+    <section id="view-home" class="view active">
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> A PRIVATE INVESTIGATION</p>
+          <h1>THE LAST<br><em>CHAPTER</em></h1>
+          <p class="hero-subtitle">Some stories are not finished.<br>Some secrets are waiting to be found.</p>
+          <div class="hero-rule"></div>
+          <p class="hero-description">An archive of unwritten memories and hidden clues prepared specially for Kak Sunskie.</p>
+          <button class="primary-button" id="beginBtn">OPEN THE CASE <span>↗</span></button>
+          <p class="micro-note">PREPARED FOR SUNSKIE · 08 NOVEMBER 2026</p>
+        </div>
+
+        <div class="hero-art">
+          <div class="paper-back"></div>
+          <div class="file-folder">
+            <div class="folder-tab">FILE 081126</div>
+            <div class="folder-content">
+              <span class="tiny">CLASSIFIED MATERIAL</span>
+              <div class="stamp">UNOPENED</div>
+              <div class="file-line long"></div>
+              <div class="file-line medium"></div>
+              <div class="file-line"></div>
+              <div class="file-sketch">✧</div>
+              <div class="file-bottom">
+                <span>INVESTIGATION BOARD</span>
+                <span>CONFIDENTIAL</span>
+              </div>
+            </div>
+          </div>
+          <div class="floating-note note-one">CASE NO. 08</div>
+          <div class="floating-note note-two">FOR SUNSKIE</div>
+          <div class="art-star star-one">✧</div>
+          <div class="art-star star-two">✦</div>
+        </div>
+      </div>
+      <footer class="home-footer">
+        <span>ARCHIVE OF UNFINISHED STORIES</span>
+        <span>NOVEMBER 2026</span>
+      </footer>
+    </section>
+
+    <!-- VIEW 2: CASE BOARD (SELECTION / PROGRESS) -->
+    <section id="view-board" class="view">
+      <div class="section-heading">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> INVESTIGATION FILES</p>
+        <h2>The <em>Evidence Board</em></h2>
+        <p>Select a case file below to unlock missing pages and collect evidence fragments.</p>
+      </div>
+
+      <div class="progress-panel">
+        <div class="progress-meta">
+          <span>PROGRESS: <strong id="progressText">0 / 8 CASES SOLVED</strong></span>
+          <span>EVIDENCE: <strong id="collectCount">0 / 8 FRAGMENTS</strong></span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressBar"></div>
+        </div>
+        <div class="inventory-row">
+          <span>COLLECTED EVIDENCE FRAGMENTS:</span>
+          <div class="fragment-preview" id="inventoryPreview">
+            <span>?</span><span>?</span><span>?</span><span>?</span><span>?</span><span>?</span><span>?</span><span>?</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-grid" id="caseGrid">
+        <!-- Case Cards Dynamic Render via JS -->
+      </div>
+
+      <div class="board-bottom">
+        <button id="proceedFinalBtn" class="primary-button" style="display:none;">DECODE THE FINAL CHAPTER <span>↗</span></button>
+      </div>
+    </section>
+
+    <!-- VIEW 3: CASE INVESTIGATION / PUZZLE -->
+    <section id="view-case" class="view">
+      <div class="case-topline">
+        <button id="backToBoardBtn" class="text-button">← BACK TO EVIDENCE BOARD</button>
+        <span class="mono" id="caseType">CASE FILE · LOGIC</span>
+      </div>
+
+      <div class="case-layout">
+        <aside class="case-sidebar">
+          <p class="eyebrow" id="caseNumberLabel">CASE 01 / 08</p>
+          <h2 id="caseTitle">The Three<br><em>Missing Pages</em></h2>
+          <span class="case-location" id="caseLocation">LOCATION: THE ARCHIVE ROOM</span>
+          <div class="sidebar-divider"></div>
+          <span class="sidebar-label">OBJECTIVE</span>
+          <p class="objective-copy" id="caseObjective">Analyze the clue and enter the secret cipher.</p>
+          <div class="sidebar-stamp">CLASSIFIED<br><small>INVESTIGATION IN PROGRESS</small></div>
+        </aside>
+
+        <main class="case-main">
+          <div class="evidence-header">
+            <span>EVIDENCE FILE</span>
+            <span class="live-dot">● LIVE PUZZLE</span>
+          </div>
+
+          <div class="case-story" id="caseStory">
+            <!-- Narrative story loaded by JS -->
+          </div>
+
+          <div id="puzzleArea" class="puzzle-area">
+            <!-- Interactive Puzzle HTML dynamically injected by JS -->
+          </div>
+
+          <div class="hint-area">
+            <button id="hintBtn" class="hint-button">NEED A HINT? <span id="hintLeft">(3 LEFT)</span></button>
+            <div id="hintBox" class="hint-text hidden"></div>
+          </div>
+
+          <div id="feedback" class="feedback" role="status"></div>
+
+          <div class="case-actions">
+            <button id="submitBtn" class="primary-button">SUBMIT EVIDENCE <span>↗</span></button>
+          </div>
+        </main>
+      </div>
+    </section>
+
+  
+    <!-- VIEW 5: MAIN BIRTHDAY LETTER -->
+    <section id="view-letter" class="view">
+      <div class="letter-page">
+        <div class="letter-top">
+          <span>ARCHIVE 08 · PERSONAL CORRESPONDENCE</span>
+          <span>08.11.2026</span>
+        </div>
+        <div class="letter-rule"></div>
+
+        <span class="letter-kicker">TO SUNSKIE,</span>
+        <h2>A Chapter<br><em>Just for You.</em></h2>
+
+        <div class="letter-body">
+          <p>Dear Kak Sunskie,</p>
+          <p>Well, look at you. You made it to the very last page.</p>
+          <p>After all those clues, hidden messages, missing pieces, and little mysteries scattered throughout this archive, you've finally arrived here. I wonder if you enjoyed the journey, if some of the puzzles made you pause for a while, or if there were moments when you almost gave up trying to figure things out. Either way, I'm glad you stayed until the end.</p>
+          <p>And now that you've reached the end, there are a few things I'd like you to know.</p>
+          <p>I hope life has been gentle with you, even on the days when it hasn't been easy. I hope the things you've kept to yourself, the worries you never quite found the right words for, and the sadness you may have carried quietly will gradually become lighter.</p>
+          <p>I hope the memories that once hurt you will lose their sharpness. That the things you wish had happened differently will no longer weigh so heavily on your heart. That the chapters you'd rather not revisit will eventually become just distant pages in a much bigger story.</p>
+          <p>And if some things take longer to heal than you expected, I hope you never feel like you're falling behind. You don't have to be okay all the time. You don't have to turn every difficult experience into a lesson, or pretend that something didn't hurt just because time has passed.</p>
+          <blockquote>You are allowed to take your time.</blockquote>
+          <p>I hope you find the kind of happiness that doesn't need to be explained. The quiet kind that finds you on an ordinary afternoon, in a song you suddenly love a little more, in a book you can't put down, in a conversation that makes you forget about the time, or in a moment when you realize that, for once, everything feels alright.</p>
+          <p>I hope you meet people who make the world feel a little less complicated. People who listen without making you feel like you have to explain everything, who appreciate the little things about you, and who remind you that you deserve kindness without having to earn it.</p>
+          <p>And most importantly, I hope you become someone who is happy with the life she's slowly creating for herself.</p>
+          <p>Please don't be too hard on yourself. You have so many more pages ahead of you, and they don't all have to be extraordinary to be meaningful. Some chapters can be quiet. Some can be messy. Some can surprise you in ways you never planned. You don't need to have everything figured out right now.</p>
+          <p>Your past may be part of your story, but it does not get to decide how the rest of it is written.</p>
+          <p>So here's to another year of you. To new places, unexpected adventures, wonderful books, songs worth listening to on repeat, little reasons to laugh, and memories that you'll be happy to look back on someday.</p>
+          <p>May this new chapter bring you more peace than uncertainty, more laughter than tears, more reasons to look forward to tomorrow, and more moments that make you genuinely grateful to be where you are.</p>
+          <p>Thank you for being someone I got to know, for the little moments we've shared, and for giving me a reason to create this small world in the first place.</p>
+          <p><strong>Happy birthday, Kak Suns.</strong></p>
+          <p>May the next chapters be kinder to you. And when you eventually look back at this one, I hope it reminds you that somewhere along the way, someone wished nothing but good things for you.</p>
+
+          <div class="letter-ending">
+            <p class="ending-line">With warmth,</p>
+            <div class="signature">The Archivist</div>
+            <p class="signature-label">A little something, made by Nita.</p>
+            <div class="wax-seal">N</div>
+          </div>
+        </div>
+
+        <div class="letter-footer">
+          <span>END OF CASE FILE NO. 081126</span>
+          <span>THE WISHES HAVE ONLY JUST BEGUN</span>
+        </div>
+      </div>
+
+      <div class="letter-controls">
+        <button id="secretCheckBtn" class="text-button">READ THE SECOND NOTE ↗</button>
+        <p class="micro-note">THE ARCHIVE IS COMPLETE</p>
+      </div>
+    </section>
+
+    <!-- VIEW 6: SECOND LETTER (BEFORE YOU CLOSE THIS ARCHIVE) -->
+    <section id="view-secret" class="view">
+      <div class="letter-page">
+        <div class="letter-top">
+          <span>ARCHIVE 08 · UNSEALED EPILOGUE</span>
+          <span class="classified-small">RESTRICTED</span>
+        </div>
+        <div class="letter-rule"></div>
+
+        <span class="letter-kicker">BEFORE YOU CLOSE THIS ARCHIVE,</span>
+        <h2>Some Stories<br><em>Are Worth Keeping.</em></h2>
+
+        <div class="letter-body">
+          <p>Dear Kak Suns,</p>
+          <p>You know, not every meaningful story begins with something extraordinary. Sometimes, it starts with an ordinary encounter, a random conversation, or a little moment that neither person knows will eventually become a memory.</p>
+          <p>I'm glad this was one of those stories.</p>
+          <p>Looking back, I'm sure there are little things we've shared that might not seem particularly remarkable on their own. But somehow, those little things became part of a collection of memories I'm happy to have.</p>
+          <p>And perhaps that's what makes getting to know someone special. You don't always realize you're making memories while you're living them.</p>
+          <p>I don't know what the next chapters will look like, or how many more stories we'll get to share. But I'm glad our paths crossed, and I'm glad I got to know the person behind all those little moments.</p>
+          <p>So, Kak Suns, thank you. Not for anything extraordinary, but simply for being someone whose presence became a small part of my story.</p>
+          <p>I hope this little archive gave you a smile, made you curious, and perhaps left you with something worth remembering.</p>
+          <p>And if you ever stumble upon it again someday, I hope you'll remember this birthday not just as another date on the calendar, but as a day someone took the time to put together a little collection of things just for you.</p>
+          <p><strong>Happy birthday, Kak Sunskie.</strong></p>
+          <p>Some stories don't need a perfect ending. They're simply worth keeping.</p>
+
+          <div class="letter-ending">
+            <p class="ending-line">With warmth and a little bit of mystery,</p>
+            <div class="signature">The Archivist ♡</div>
+            <div class="wax-seal">✧</div>
+          </div>
+        </div>
+
+        <div class="letter-footer">
+          <span>END OF ARCHIVE 08</span>
+          <span>SOMEWHERE, A NEW STORY BEGINS</span>
+        </div>
+      </div>
+
+      <div class="letter-controls">
+        <button id="backLetterBtn" class="text-button">← RETURN TO MAIN LETTER</button>
+        <button id="storyBehindBtn" class="text-button hidden" style="color: var(--gold);">UNCOVER THE STORY BEHIND THE STORY ✧ ↗</button>
+      </div>
+    </section>
+
+    <!-- VIEW 7: THE STORY BEHIND THE STORY (RERENDER SETELAH 8 FRAGMENTS) -->
+    <section id="view-behind-story" class="view secret-screen">
+      <div class="letter-page" style="text-align: center;">
+        <p class="eyebrow" style="justify-content: center;">UNSEALED · THE STORY BEHIND THE STORY</p>
+        <div class="final-seal" style="margin: 20px auto;">✧</div>
+        <h2>THE STORY<br><em>BEHIND THE STORY</em></h2>
+        <div class="letter-body">
+          <p class="secret-message">You found the things most people would have walked past.<br>Thank you for looking a little closer.</p>
+          <blockquote style="border: none; font-size: 18px; margin: 30px 0;">Some gifts are made to be opened.<br>Others are made to remind someone that they matter.</blockquote>
+          <p class="signature">— The Archivist</p>
+        </div>
+        <div class="letter-controls" style="justify-content: center; margin-top: 40px;">
+          <button id="backToSecondLetterBtn" class="text-button">← RETURN TO EPILOGUE</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast">Evidence Fragment Unlocked!</div>
+
+  <!-- BACKGROUND MUSIC -->
+  <audio id="letterMusic" loop preload="none">
+    <source src="assets/audio/star-nadin.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- URUTAN SCRIPT SANGAT PENTING -->
+  <script src="js/puzzles.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/game-engine.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

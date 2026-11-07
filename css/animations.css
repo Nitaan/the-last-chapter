@@ -1,0 +1,7 @@
+@keyframes viewIn { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes softPulse { 0%,100% { opacity: .65; } 50% { opacity: 1; } }
+.eyebrow-dot { animation: softPulse 2.4s infinite; }
+.file-folder { animation: folderFloat 6s ease-in-out infinite; }
+@keyframes folderFloat { 0%,100% { transform: rotate(-4deg) translateY(0); } 50% { transform: rotate(-2deg) translateY(-8px); } }
+.letter-page { animation: letterReveal .9s ease both; }
+@keyframes letterReveal { from { opacity: 0; transform: translateY(18px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
