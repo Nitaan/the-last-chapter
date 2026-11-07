@@ -622,3 +622,221 @@
         scroll-behavior: auto !important;
     }
 }
+
+
+/* =========================================================
+   THE INVITATION — RESPONSIVE ENVELOPE & LETTER
+   ========================================================= */
+
+@media (max-width: 760px) {
+    .invitation-view {
+        padding: 38px 0 30px;
+        overflow: hidden;
+    }
+
+    .invitation-container {
+        width: 100%;
+        padding: 0 2px;
+    }
+
+    .invitation-heading {
+        width: 100%;
+    }
+
+    .invitation-heading h1 {
+        margin: 20px 0 13px;
+        font-size: clamp(48px, 12.5vw, 76px);
+        line-height: 0.96;
+    }
+
+    .invitation-heading .eyebrow {
+        justify-content: center;
+        font-size: 8px;
+        letter-spacing: 0.1em;
+    }
+
+    .invitation-subtitle {
+        width: min(100%, 330px);
+        padding: 0 8px;
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .invitation-envelope-area {
+        width: min(350px, 88%);
+        margin: 34px auto 22px;
+        perspective: 900px;
+    }
+
+    .invitation-envelope {
+        width: 100%;
+        aspect-ratio: 1.48;
+        min-height: 0;
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        appearance: none;
+        -webkit-appearance: none;
+        touch-action: manipulation;
+    }
+
+    .envelope-back,
+    .envelope-paper,
+    .envelope-front,
+    .envelope-flap,
+    .envelope-seal {
+        box-sizing: border-box;
+    }
+
+    .envelope-paper {
+        padding: 14px 10px;
+    }
+
+    .envelope-paper-label,
+    .envelope-paper-date {
+        font-size: 7px;
+        letter-spacing: 0.12em;
+    }
+
+    .envelope-paper-title {
+        margin: 10px 0;
+        font-size: clamp(18px, 5.8vw, 22px);
+    }
+
+    .envelope-seal {
+        width: 41px;
+        height: 41px;
+        font-size: 21px;
+    }
+
+    .envelope-instruction {
+        margin-top: 17px;
+        font-size: 8px;
+        line-height: 1.6;
+        text-align: center;
+    }
+
+    .invitation-letter {
+        width: 100%;
+        margin-top: 18px;
+        padding: 25px clamp(18px, 5.5vw, 25px);
+    }
+
+    .invitation-letter-header {
+        align-items: flex-start;
+        font-size: 7px;
+        line-height: 1.6;
+        gap: 8px;
+    }
+
+    .invitation-letter-content p {
+        font-size: 12px;
+        line-height: 1.9;
+    }
+
+    .invitation-letter-content .invitation-salutation {
+        font-size: 18px;
+    }
+
+    .invitation-letter-content blockquote {
+        margin: 19px 0;
+        padding: 11px 14px;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .invitation-letter-content .invitation-last-line,
+    .invitation-letter-content .invitation-signoff {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .invitation-letter-action {
+        margin-top: 22px;
+    }
+
+    .invitation-accept {
+        width: 100%;
+        min-height: 48px;
+        padding: 14px 16px;
+        font-size: 9px;
+    }
+
+    .invitation-footnote {
+        font-size: 7px;
+        line-height: 1.6;
+    }
+
+    .invitation-footer {
+        margin-top: 36px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 14px;
+        text-align: center;
+        font-size: 7px;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 380px) {
+    .invitation-view {
+        padding-top: 30px;
+    }
+
+    .invitation-heading h1 {
+        font-size: clamp(43px, 12.5vw, 49px);
+    }
+
+    .invitation-subtitle {
+        font-size: 13px;
+    }
+
+    .invitation-envelope-area {
+        width: min(310px, 90%);
+        margin-top: 29px;
+    }
+
+    .envelope-paper {
+        padding: 10px 7px;
+    }
+
+    .envelope-paper-label,
+    .envelope-paper-date {
+        font-size: 6px;
+    }
+
+    .envelope-paper-title {
+        font-size: 18px;
+    }
+
+    .envelope-seal {
+        width: 37px;
+        height: 37px;
+        font-size: 19px;
+    }
+
+    .invitation-letter {
+        padding: 22px 17px;
+    }
+
+    .invitation-letter-header {
+        letter-spacing: 0.07em;
+    }
+}
+
+@media (max-width: 760px) and (orientation: landscape) {
+    .invitation-view {
+        padding-top: 25px;
+    }
+
+    .invitation-envelope-area {
+        width: min(300px, 62%);
+        margin-top: 24px;
+    }
+
+    .invitation-heading h1 {
+        font-size: clamp(42px, 8vw, 60px);
+    }
+}
