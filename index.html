@@ -28,8 +28,165 @@
 
   <main class="app-shell" id="app">
 
-    <!-- VIEW 1: HOME / LANDING -->
-    <section id="view-home" class="view active">
+    <!-- VIEW 0: THE INVITATION -->
+<section id="view-invitation" class="view invitation-view active">
+
+  <div class="invitation-container">
+
+    <div class="invitation-heading">
+      <p class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        A LETTER HAS BEEN LEFT FOR YOU
+      </p>
+
+      <h1>THE<br><em>INVITATION</em></h1>
+
+      <p class="invitation-subtitle">
+        Somewhere inside this archive, a story is waiting to be found.
+      </p>
+    </div>
+
+    <!-- ENVELOPE -->
+    <div class="invitation-envelope-area">
+
+      <button
+        type="button"
+        class="invitation-envelope"
+        id="openInvitationBtn"
+        aria-label="Open the invitation envelope"
+        aria-expanded="false"
+        aria-controls="invitationLetter"
+      >
+
+        <div class="envelope-back"></div>
+
+        <div class="envelope-paper">
+          <span class="envelope-paper-label">
+            A PRIVATE CORRESPONDENCE
+          </span>
+
+          <span class="envelope-paper-title">
+            An invitation<br>
+            <em>for Sunskie</em>
+          </span>
+
+          <span class="envelope-paper-date">
+            08 · 11 · 2026
+          </span>
+        </div>
+
+        <div class="envelope-front"></div>
+        <div class="envelope-flap"></div>
+
+        <div class="envelope-seal">
+          ✧
+        </div>
+
+      </button>
+
+      <p class="envelope-instruction" id="envelopeInstruction">
+        CLICK THE ENVELOPE TO UNSEAL
+      </p>
+
+    </div>
+
+    <!-- INVITATION LETTER -->
+    <article
+      class="invitation-letter hidden"
+      id="invitationLetter"
+    >
+
+      <div class="invitation-letter-header">
+        <span>THE LAST CHAPTER</span>
+        <span>FILE NO. 081126</span>
+      </div>
+
+      <div class="invitation-letter-content">
+
+        <p class="invitation-salutation">
+          To the one who found this letter,
+        </p>
+
+        <p>
+          If you're reading this, then somehow,
+          you've found your way here.
+        </p>
+
+        <p>
+          I don't know what brought you to this place,
+          but perhaps it wasn't entirely by chance.
+        </p>
+
+        <p>
+          There are eight unfinished cases waiting
+          inside this archive. Each holds a piece of
+          something that was left behind — a forgotten
+          detail, an unfinished story, and a few things
+          that were never meant to disappear.
+        </p>
+
+        <p>
+          Some answers will be easy to find.
+          Others might take a little more patience.
+        </p>
+
+        <p>
+          Don't worry about getting everything right
+          on the first try. Just follow the clues,
+          trust your curiosity, and keep an eye on
+          the things that seem insignificant.
+        </p>
+
+        <p class="invitation-last-line">
+          One last thing...
+        </p>
+
+        <blockquote>
+          Not everything in this archive is meant
+          to be solved.
+
+          <br>
+
+          Some things are simply meant to be found.
+        </blockquote>
+
+        <p class="invitation-signoff">
+          Your investigation begins here.
+        </p>
+
+      </div>
+
+      <div class="invitation-letter-action">
+
+        <button
+          type="button"
+          class="primary-button"
+          id="acceptInvitationBtn"
+        >
+          ACCEPT THE INVITATION
+          <span>↗</span>
+        </button>
+
+        <p class="invitation-footnote">
+          THE ARCHIVE IS WAITING · TAKE YOUR TIME
+        </p>
+
+      </div>
+
+    </article>
+
+  </div>
+
+  <footer class="home-footer invitation-footer">
+    <span>AN UNFINISHED STORY</span>
+    <span>PREPARED FOR SUNSKIE</span>
+  </footer>
+
+</section>
+
+
+<!-- VIEW 1: HOME / LANDING -->
+<section id="view-home" class="view">
       <div class="hero-layout">
         <div class="hero-copy">
           <p class="eyebrow"><span class="eyebrow-dot"></span> A PRIVATE INVESTIGATION</p>
