@@ -1,8 +1,624 @@
-@media (max-width: 760px) {
-  .topbar { height: 62px; padding: 0 5vw; }.brand { font-size: 9px; gap: 8px; }.case-label { display: none; }.topbar-right { gap: 10px; }
-  .app-shell { width: 90vw; }.view { padding-top: 42px; }.hero-layout { display: flex; flex-direction: column; align-items: stretch; gap: 5px; min-height: auto; }.hero-copy h1 { font-size: clamp(65px, 18vw, 100px); }.hero-art { height: 360px; margin: 12px 0 20px; }.file-folder { width: 67%; height: 78%; }.paper-back { width: 63%; height: 78%; }.note-one { left: 2%; }.note-two { right: 2%; }.home-footer { font-size: 7px; }
-  .case-grid { grid-template-columns: 1fr; }.case-card { min-height: 160px; }.case-layout { grid-template-columns: 1fr; gap: 25px; padding-top: 30px; }.case-sidebar h2 { max-width: 450px; }.sidebar-stamp { display: none; }.case-main { padding: 18px; }.evidence-header { font-size: 8px; }.match-row { grid-template-columns: 1fr; gap: 5px; }.match-row select { margin-bottom: 6px; }
-  .progress-panel { padding: 17px; }.progress-meta { font-size: 8px; gap: 10px; }.inventory-row { font-size: 8px; }.board-bottom { align-items: flex-start; gap: 15px; flex-direction: column; }
-  .letter-page { padding: 27px 23px; }.letter-body { font-size: 14px; line-height: 1.85; }.letter-body blockquote { font-size: 19px; }.letter-controls { flex-direction: column; align-items: flex-start; gap: 10px; }.letter-controls .micro-note { text-align: left; }
+
+/* =========================================================
+   THE LAST CHAPTER
+   RESPONSIVE ADAPTATION
+   Desktop-first | Tablet | Mobile
+   ========================================================= */
+
+
+/* TABLET */
+@media (max-width: 980px) {
+    .app-shell {
+        width: 92vw;
+    }
+
+    .hero-layout {
+        gap: 4vw;
+    }
+
+    .case-layout {
+        grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+        gap: 4vw;
+    }
+
+    .case-main {
+        padding: 22px;
+    }
+
+    .case-sidebar h2 {
+        font-size: clamp(38px, 5vw, 52px);
+    }
 }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 18px;
+    }
+
+    body {
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    /* TOP NAVIGATION */
+
+    .topbar {
+        height: 62px;
+        padding: 0 5vw;
+    }
+
+    .brand {
+        gap: 9px;
+        font-size: 9px;
+        letter-spacing: 0.13em;
+    }
+
+    .brand-mark {
+        width: 27px;
+        height: 27px;
+        flex-shrink: 0;
+    }
+
+    .case-label {
+        display: none;
+    }
+
+    .topbar-right {
+        gap: 10px;
+    }
+
+
+    /* MAIN CONTAINER */
+
+    .app-shell {
+        width: min(90vw, 560px);
+        min-height: calc(100vh - 62px);
+        min-height: calc(100svh - 62px);
+    }
+
+    .view {
+        min-height: calc(100vh - 62px);
+        min-height: calc(100svh - 62px);
+        padding: 38px 0 32px;
+    }
+
+
+    /* HOME / LANDING PAGE */
+
+    #view-home {
+        padding-top: 25px;
+    }
+
+    .hero-layout {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(58px, 15vw, 88px);
+        line-height: 0.9;
+        margin: 23px 0 19px;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(17px, 4.7vw, 21px);
+        line-height: 1.5;
+    }
+
+    .hero-description {
+        max-width: 100%;
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .hero-art {
+        height: clamp(280px, 78vw, 360px);
+        margin: 15px 0 10px;
+    }
+
+    .file-folder {
+        width: 70%;
+        height: 78%;
+        padding: 10px;
+    }
+
+    .paper-back {
+        width: 65%;
+        height: 78%;
+    }
+
+    .folder-content {
+        padding: 22px 18px;
+    }
+
+    .stamp {
+        margin: 30px 0 20px 5px;
+        font-size: 10px;
+    }
+
+    .file-sketch {
+        right: 18px;
+        bottom: 48px;
+        font-size: 64px;
+    }
+
+    .file-bottom {
+        left: 18px;
+        right: 18px;
+        bottom: 14px;
+        font-size: 6px;
+    }
+
+    .note-one {
+        left: 0;
+    }
+
+    .note-two {
+        right: 0;
+    }
+
+    .home-footer {
+        flex-wrap: wrap;
+        gap: 9px 14px;
+        font-size: 7px;
+        line-height: 1.6;
+    }
+
+
+    /* CASE BOARD */
+
+    .section-heading {
+        margin-bottom: 25px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(38px, 10vw, 54px);
+        line-height: 1.05;
+    }
+
+    .section-heading p:last-child {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    .progress-panel {
+        padding: 16px;
+        margin-bottom: 20px;
+    }
+
+    .progress-meta {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        font-size: 8px;
+        line-height: 1.6;
+    }
+
+    .progress-track {
+        margin: 13px 0 17px;
+    }
+
+    .inventory-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 8px;
+        line-height: 1.6;
+    }
+
+    .fragment-preview {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .fragment-preview span {
+        width: 27px;
+        height: 27px;
+    }
+
+    .case-grid {
+        grid-template-columns: 1fr;
+        gap: 11px;
+    }
+
+    .case-card {
+        min-height: 0;
+        padding: 19px;
+    }
+
+    .case-card h3 {
+        font-size: 23px;
+        margin: 17px 0 8px;
+    }
+
+    .card-bottom {
+        margin-top: 17px;
+    }
+
+    .board-bottom {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+
+    /* CASE DETAIL */
+
+    .case-topline {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 8px 14px;
+        padding-bottom: 14px;
+    }
+
+    .case-topline .text-button {
+        font-size: 9px;
+    }
+
+    .case-topline .mono {
+        font-size: 8px;
+    }
+
+    .case-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding-top: 25px;
+    }
+
+    .case-sidebar h2 {
+        max-width: 100%;
+        font-size: clamp(36px, 9vw, 48px);
+        line-height: 1.04;
+        margin: 12px 0;
+    }
+
+    .case-location {
+        font-size: 8px;
+    }
+
+    .sidebar-divider {
+        margin: 18px 0 13px;
+    }
+
+    .objective-copy {
+        font-size: 14px;
+        line-height: 1.55;
+        margin: 8px 0 0;
+    }
+
+    .sidebar-stamp {
+        display: none;
+    }
+
+    .case-main {
+        width: 100%;
+        min-width: 0;
+        padding: 17px;
+    }
+
+    .evidence-header {
+        flex-wrap: wrap;
+        font-size: 8px;
+    }
+
+    .case-story {
+        padding: 17px 0 15px;
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .puzzle-area {
+        padding: 18px 0 8px;
+    }
+
+    .puzzle-instruction {
+        font-size: 9px;
+        line-height: 1.7;
+    }
+
+
+    /* PUZZLE OPTIONS */
+
+    .choice-list {
+        gap: 8px;
+    }
+
+    .choice-option {
+        min-height: 48px;
+        padding: 12px;
+        gap: 10px;
+        font-size: 13px;
+        line-height: 1.45;
+    }
+
+    .order-list {
+        gap: 7px;
+    }
+
+    .order-item {
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        gap: 7px;
+        padding: 9px;
+    }
+
+    .order-item span {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .order-item button {
+        width: 34px;
+        height: 34px;
+    }
+
+    .match-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .match-row select {
+        min-height: 44px;
+        margin-bottom: 6px;
+    }
+
+    .answer-input {
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+    .hint-area {
+        margin-top: 12px;
+    }
+
+    .hint-button {
+        min-height: 40px;
+        font-size: 9px;
+    }
+
+    .hint-text {
+        font-size: 12px;
+    }
+
+    .feedback {
+        line-height: 1.6;
+    }
+
+    .case-actions {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .case-actions .primary-button,
+    .case-actions .text-button {
+        width: 100%;
+        min-height: 46px;
+        margin-top: 7px;
+    }
+
+    .primary-button {
+        min-height: 48px;
+        padding: 14px 17px;
+        font-size: 9px;
+    }
+
+
+    /* FINAL DECODER */
+
+    .final-wrap h2 {
+        font-size: clamp(48px, 13vw, 68px);
+    }
+
+    .final-fragments {
+        flex-wrap: wrap;
+        gap: 7px;
+    }
+
+    .final-fragments span {
+        width: 43px;
+        height: 49px;
+        font-size: 23px;
+    }
+
+    .cipher-box {
+        font-size: 15px;
+        letter-spacing: 0.1em;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* LETTER */
+
+    .letter-page {
+        width: 100%;
+        padding: 27px clamp(19px, 6vw, 28px);
+    }
+
+    .letter-top {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 8px 14px;
+        font-size: 8px;
+        line-height: 1.6;
+    }
+
+    .letter-rule {
+        margin: 15px 0 29px;
+    }
+
+    .letter-page h2 {
+        font-size: clamp(39px, 10.5vw, 54px);
+        line-height: 1;
+        margin: 13px 0 27px;
+    }
+
+    .letter-body {
+        font-size: 14px;
+        line-height: 1.85;
+        overflow-wrap: break-word;
+    }
+
+    .letter-body p {
+        margin-bottom: 15px;
+    }
+
+    .letter-body blockquote {
+        margin: 23px 0;
+        padding: 8px 0 8px 15px;
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    .letter-ending {
+        margin-top: 32px;
+        padding-top: 20px;
+        padding-bottom: 12px;
+    }
+
+    .signature {
+        font-size: 30px;
+    }
+
+    .wax-seal {
+        width: 42px;
+        height: 42px;
+        right: 0;
+        bottom: 0;
+        font-size: 21px;
+    }
+
+    .letter-footer {
+        flex-wrap: wrap;
+        gap: 8px 14px;
+        margin-top: 30px;
+        font-size: 7px;
+        line-height: 1.6;
+    }
+
+    .letter-controls {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .letter-controls .micro-note {
+        text-align: left;
+    }
+
+    .letter-controls .text-button {
+        min-height: 40px;
+        font-size: 9px;
+        text-align: left;
+    }
+
+
+    /* MODALS & TOUCH INTERACTIONS */
+
+    button,
+    select,
+    input {
+        touch-action: manipulation;
+    }
+
+    .modal {
+        padding: 14px;
+    }
+
+    .modal-card {
+        width: 100%;
+        max-height: calc(100svh - 28px);
+        overflow-y: auto;
+        padding: 25px 19px;
+    }
+
+    .toast {
+        width: max-content;
+        max-width: calc(100vw - 32px);
+        bottom: max(16px, env(safe-area-inset-bottom));
+        text-align: center;
+        font-size: 10px;
+    }
+}
+
+
+/* EXTRA SMALL PHONES */
+
+@media (max-width: 380px) {
+
+    .app-shell {
+        width: 92vw;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(53px, 14.5vw, 64px);
+    }
+
+    .case-main {
+        padding: 14px;
+    }
+
+    .letter-page {
+        padding-left: 17px;
+        padding-right: 17px;
+    }
+
+    .letter-body {
+        font-size: 13px;
+        line-height: 1.82;
+    }
+
+    .letter-footer {
+        flex-direction: column;
+    }
+}
+
+
+/* LANDSCAPE PHONES */
+
+@media (max-width: 760px) and (orientation: landscape) {
+
+    #view-home {
+        padding-top: 22px;
+    }
+
+    .hero-layout {
+        display: grid;
+        grid-template-columns: 1fr 0.85fr;
+        gap: 18px;
+        align-items: center;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(48px, 9vw, 66px);
+    }
+
+    .hero-art {
+        height: 270px;
+        margin: 0;
+    }
+}
+
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
